@@ -28,10 +28,21 @@ class Event
   end
 
   def total_inventory
-    truck_and_quantity_by_item = Hash.new 
+    truck_and_quantity_by_item = Hash.new
     @food_trucks.each do |truck|
-      require "pry"; binding.pry
+      truck.inventory.each do |item, count|
+        item_details = {quantity: count, food_trucks: gather_trucks(truck)}
+        truck_and_quantity_by_item[item] = item_details
+      end
     end
+    truck_and_quantity_by_item
+  end
 
+  def gather_trucks(truck)
+    trucks_with_item = []
+      truck.inventory.each do |item, count|
+        trucks_with_item << truck
+      end
+      trucks_with_item
   end
 end
