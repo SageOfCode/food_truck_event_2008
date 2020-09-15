@@ -16,4 +16,12 @@ class FoodTruck
     end
     total
   end
+
+  def potential_revenue
+    total = 0
+    @inventory.each do |food, count|
+      total += food.price.gsub(/[^\d\.]/, '').to_f * count
+    end
+    total
+  end
 end
