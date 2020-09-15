@@ -26,7 +26,7 @@ class FoodTruckTest < Minitest::Test
     assert_equal 30, food_truck.check_stock(item1)
     food_truck.stock(item1, 25)
     assert_equal 55, food_truck.check_stock(item1)
-    pry(main)> food_truck.stock(item2, 12)
+    food_truck.stock(item2, 12)
 
     expected3 = {item1 => 55, item2 => 12}
     assert_equal expected3, food_truck.inventory
