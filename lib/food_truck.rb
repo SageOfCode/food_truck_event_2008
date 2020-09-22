@@ -12,7 +12,7 @@ class FoodTruck
   def check_stock(stock)
     total = 0
       @inventory.each do |item, quantity|
-        total += cost
+        total += quantity
     end
     total
   end
@@ -20,7 +20,7 @@ class FoodTruck
   def potential_revenue
     total = 0
     @inventory.each do |food, count|
-      total += food.price.gsub(/[^\d\.]/, '').to_f * count
+      total += food.price * count
     end
     total
   end
